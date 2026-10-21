@@ -1,0 +1,9 @@
+{
+  "name": "bewyou-demo",
+  "private": true,
+  "type": "module",
+  "description": "Bewyou · PsicOnline Analytics — demo de cribado de soledad (ISE), panel clínico, tablero maestro y banco de preguntas.",
+  "scripts": { "dev": "vercel dev" },
+  "dependencies": { "@neondatabase/serverless": "^1.0.2" },
+  "engines": { "node": ">=18" }
+}

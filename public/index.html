@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>(function(){var p=location.pathname.replace(/\/+$/,"")||"/";var M={"/app":"usuario","/panel":"psicologo","/tablero":"tablero","/banco":"banco"};var m=M[p]||"";var d=document.documentElement;
+if(m)d.setAttribute("data-modo",m);var k="";try{k=localStorage.getItem("bw-key")||""}catch(e){}if(m!=="usuario"&&!k)d.classList.add("bw-lock")})();</script>
+<style>html[data-modo] #tabs{display:none!important}html.bw-lock main,html.bw-lock #bw-salir{visibility:hidden}
+.salir{margin-left:8px;background:transparent;color:var(--head-ink);border:1px solid color-mix(in srgb,var(--head-ink) 35%,transparent);border-radius:8px;padding:6px 12px;font-weight:700;font-size:13px;cursor:pointer}
+.salir:hover{background:color-mix(in srgb,var(--head-ink) 12%,transparent)}</style>
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Bewyou · PsicOnline Analytics</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -402,6 +407,7 @@ table.bank tr.off td{opacity:.55}
   <div class="top-in wrap">
     <div class="brand"><b>Bewyou</b><span>PsicOnline Analytics</span><em class="demo-pill">Demo</em></div>
     <span class="modpill" id="modpill" hidden></span>
+    <button type="button" class="salir" id="bw-salir" hidden>Salir</button>
     <nav class="tabs" id="tabs" aria-label="Vistas">
       <button data-view="usuario">App del usuario</button>
       <button data-view="psicologo">Panel clínico</button>
@@ -410,6 +416,9 @@ table.bank tr.off td{opacity:.55}
     </nav>
   </div>
 </header>
+<script>(function(){var m=document.documentElement.getAttribute("data-modo");var N={usuario:"App del usuario",psicologo:"Panel clínico",tablero:"Tablero maestro",banco:"Banco de preguntas"};
+if(m){var p=document.getElementById("modpill");p.textContent=N[m];p.hidden=false;document.getElementById("tabs").hidden=true}
+if(m!=="usuario"){var b=document.getElementById("bw-salir");b.hidden=false;b.addEventListener("click",function(){try{localStorage.removeItem("bw-key")}catch(e){}location.href=location.pathname})}})();</script>
 <main class="wrap" id="app"></main>
 <div id="toast" class="toast" hidden></div>
 <script src="/bw-runtime.js"></script>
